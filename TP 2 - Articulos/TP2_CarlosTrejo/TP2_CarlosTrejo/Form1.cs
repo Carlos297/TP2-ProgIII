@@ -45,13 +45,13 @@ namespace TP2_CarlosTrejo
                 lista = negocio.listar2();
                 dgvArticulos.DataSource = lista;
 
-                  dgvArticulos.Columns[0].Visible = false;
-                  dgvArticulos.Columns[1].Visible = false;
+                  //dgvArticulos.Columns[0].Visible = false;
+                  //dgvArticulos.Columns[1].Visible = false;
                   //dgvArticulos.Columns[2].Visible = false;
                   //dgvArticulos.Columns[3].Visible = false;
-                  dgvArticulos.Columns[4].Visible = false;
-                  dgvArticulos.Columns[5].Visible = false;
-                  dgvArticulos.Columns[6].Visible = false;
+                  //dgvArticulos.Columns[4].Visible = false;
+                  //dgvArticulos.Columns[5].Visible = false;
+                  //dgvArticulos.Columns[6].Visible = false;
                 
             }
             catch (Exception ex)
