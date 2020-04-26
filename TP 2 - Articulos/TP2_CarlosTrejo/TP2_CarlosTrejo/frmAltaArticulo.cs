@@ -15,9 +15,18 @@ namespace TP2_CarlosTrejo
 {
     public partial class frmAltaArticulo : Form
     {
+        private Articulo articulo = null;
+        
         public frmAltaArticulo()
         {
             InitializeComponent();
+        }
+
+
+        public frmAltaArticulo(Articulo art)
+        {
+            InitializeComponent();
+            articulo = art;
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -33,19 +42,25 @@ namespace TP2_CarlosTrejo
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Articulo nuevo = new Articulo();
+            
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
-                nuevo.Codigo = txtCodArt.Text.Trim();
-                nuevo.Nombre = txtNombre.Text.Trim();
-                nuevo.Descripcion = txtDescripcion.Text.Trim();
-                nuevo.ImagenURL = txtURLImagen.Text.Trim();
-                nuevo.Marca = (Marca)cboMarcas.SelectedItem;
-                nuevo.Categoria = (Categoria)cboCategoria.SelectedItem;
-                nuevo.Precio = Convert.ToDouble(txtPrecio.Text);
-                //nuevo.Precio = txtPrecio.Text.CopyTo
-                negocio.agregar(nuevo);
+                if (articulo == null)
+                   articulo = new Articulo();
+                articulo.Codigo = txtCodArt.Text.Trim();
+                articulo.Nombre = txtNombre.Text.Trim();
+                articulo.Descripcion = txtDescripcion.Text.Trim();
+                articulo.ImagenURL = txtURLImagen.Text.Trim();
+                articulo.Marca = (Marca)cboMarcas.SelectedItem;
+                articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
+                articulo.Precio = Convert.ToDecimal(txtPrecio.Text);
+
+                if (articulo.Id == 0)
+                    negocio.agregar(articulo);
+                
+                else
+                     negocio.modificar(articulo);
                 Dispose();
 
 
@@ -67,18 +82,33 @@ namespace TP2_CarlosTrejo
             CategoriaNegocio categoria = new CategoriaNegocio();
             MarcaNegocio marca = new MarcaNegocio();
             
-            
-
             try
             {
                
 
 
-               cboCategoria.DataSource = categoria.listar();
-                cboMarcas.DataSource = marca.listar();
-
-
+                cboCategoria.DataSource = categoria.listar();
+                cboCategoria.DisplayMember = "Descripcion";
+                cboCategoria.ValueMember = "IdCategoria";
                 
+                cboMarcas.DataSource = marca.listar();
+                cboMarcas.DisplayMember = "Descripcion";
+                cboMarcas.ValueMember = "IdMarca";
+               
+
+
+                if(articulo != null)
+                {
+                    Text = "Modificar";
+                    txtCodArt.Text = articulo.Codigo;
+                    txtNombre.Text = articulo.Nombre;
+                    txtDescripcion.Text = articulo.Descripcion;
+                    txtURLImagen.Text = articulo.ImagenURL;
+                    txtPrecio.Text = Convert.ToString(articulo.Precio);
+
+                    cboCategoria.SelectedValue = articulo.Categoria.IdCategoria;
+                    cboMarcas.SelectedValue = articulo.Marca.IdMarca;
+                }
 
             }
             catch (Exception ex)

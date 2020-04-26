@@ -7,46 +7,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
 
 namespace TP2_CarlosTrejo
 {
+
+    
+
     public partial class Form1 : Form
     {
+
+        private List<Articulo> lista;
         public Form1()
         {
+            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             InitializeComponent();
         }
 
-        private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
-
             CargarGrilla();
 
-          
         }
 
 
+        
         private void CargarGrilla()
         {
                ArticuloNegocio negocio = new ArticuloNegocio();
+               
+
             try
             {
-                
-                dgvArticulos.DataSource = negocio.listar2();
+                lista = negocio.listar2();
+                dgvArticulos.DataSource = lista;
 
-                //dgvArticulos.Columns[0].Visible = false;
-                //dgvArticulos.Columns[1].Visible = false;
-                //dgvArticulos.Columns[2].Visible = false;
-                //dgvArticulos.Columns[3].Visible = false;
-                dgvArticulos.Columns[4].Visible = false;
-                dgvArticulos.Columns[5].Visible = false;
-                //dgvArticulos.Columns[6].Visible = false;
+                  dgvArticulos.Columns[0].Visible = false;
+                  dgvArticulos.Columns[1].Visible = false;
+                  //dgvArticulos.Columns[2].Visible = false;
+                  //dgvArticulos.Columns[3].Visible = false;
+                  dgvArticulos.Columns[4].Visible = false;
+                  dgvArticulos.Columns[5].Visible = false;
+                  dgvArticulos.Columns[6].Visible = false;
+                
             }
             catch (Exception ex)
             {
@@ -85,6 +91,67 @@ namespace TP2_CarlosTrejo
         {
             Articulo modificar;
             modificar = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            frmAltaArticulo alta = new frmAltaArticulo(modificar);
+            alta.ShowDialog();
+            CargarGrilla();
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                int id = ((Articulo)dgvArticulos.CurrentRow.DataBoundItem).Id;
+                negocio.eliminar(id);
+                CargarGrilla();
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void txtBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void btnContar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(lista.Count.ToString());
+
+        }
+
+        private void txtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+
+            List<Articulo> listaFiltrada;
+
+            try
+            {
+                if (txtBusqueda.Text == "")
+                {
+                   listaFiltrada = lista;
+                }
+                else
+                {
+                    listaFiltrada = lista.FindAll(k => k.Descripcion.ToLower().Contains(txtBusqueda.Text.ToLower()) || k.Nombre.ToLower().Contains(txtBusqueda.Text.ToLower()));
+                    //dgvArticulos.DataSource = listaFiltrada;
+                }
+
+                dgvArticulos.DataSource = listaFiltrada;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+
+
         }
     }
 }

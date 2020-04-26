@@ -67,6 +67,7 @@
             // 
             // cboCategoria
             // 
+            this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.FormattingEnabled = true;
             this.cboCategoria.Location = new System.Drawing.Point(129, 218);
             this.cboCategoria.Name = "cboCategoria";
@@ -128,6 +129,7 @@
             // 
             // cboMarcas
             // 
+            this.cboMarcas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMarcas.FormattingEnabled = true;
             this.cboMarcas.Location = new System.Drawing.Point(129, 176);
             this.cboMarcas.Name = "cboMarcas";
@@ -205,6 +207,8 @@
             this.Controls.Add(this.lblCategoria);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(495, 470);
+            this.MinimumSize = new System.Drawing.Size(489, 463);
             this.Name = "frmAltaArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo Articulo";

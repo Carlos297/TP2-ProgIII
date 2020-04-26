@@ -5,11 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace TP2_CarlosTrejo
 {
+
+    
     public class Articulo
 
     {
+        public int Id { get; set; }
         public string Codigo { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
@@ -17,7 +22,7 @@ namespace TP2_CarlosTrejo
         public Categoria Categoria { get; set; }
         public string ImagenURL { get; set; }
 
-        public Double? Precio { get; set; }
+        public decimal ? Precio { get; set; }
 
     }
 }
