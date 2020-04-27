@@ -189,7 +189,7 @@ namespace TP2_CarlosTrejo
                         aux.ImagenURL = datos.lector.GetString(6);
 
                     if (!Convert.IsDBNull(datos.lector["Precio"]))
-                    aux.Precio = Convert.ToDecimal(datos.lector.GetDecimal(7));
+                    aux.Precio = Convert.ToDecimal(datos.lector.GetDecimal(7).ToString());
 
 
                     aux.Marca.Descripcion = datos.lector.GetString(8);
