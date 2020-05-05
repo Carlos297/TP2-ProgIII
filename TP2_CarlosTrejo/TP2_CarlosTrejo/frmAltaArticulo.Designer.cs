@@ -34,7 +34,6 @@
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtURLImagen = new System.Windows.Forms.TextBox();
             this.lblMarca = new System.Windows.Forms.Label();
@@ -83,23 +82,13 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(98, 361);
+            this.btnAceptar.Location = new System.Drawing.Point(204, 362);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(108, 42);
             this.btnAceptar.TabIndex = 4;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(272, 361);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(103, 42);
-            this.btnCancelar.TabIndex = 5;
-            this.btnCancelar.Text = "&Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label3
             // 
@@ -109,7 +98,6 @@
             this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "URL Imagen";
-            
             // 
             // txtURLImagen
             // 
@@ -189,7 +177,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(473, 425);
+            this.ClientSize = new System.Drawing.Size(479, 425);
             this.Controls.Add(this.Descripcion);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtCodArt);
@@ -200,7 +188,6 @@
             this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.txtURLImagen);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.cboCategoria);
@@ -225,7 +212,6 @@
         private System.Windows.Forms.ComboBox cboCategoria;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtURLImagen;
         private System.Windows.Forms.Label lblMarca;

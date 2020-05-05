@@ -14,3 +14,5 @@ C:\Users\Carlos\Desktop\Facultad 2020\Programacion III - 2020\TP 2 - Articulos\T
 C:\Users\Carlos\Desktop\Facultad 2020\Programacion III - 2020\TP 2 - Articulos\TP2_CarlosTrejo\TP2_CarlosTrejo\bin\Debug\Negocio1.pdb
 C:\Users\Carlos\Desktop\Facultad 2020\Programacion III - 2020\TP 2 - Articulos\TP2_CarlosTrejo\TP2_CarlosTrejo\obj\Debug\TP2_CarlosTrejo.csproj.CopyComplete
 C:\Users\Carlos\Desktop\Facultad 2020\Programacion III - 2020\TP 2 - Articulos\TP2_CarlosTrejo\TP2_CarlosTrejo\obj\Debug\TP2_CarlosTrejo.frmAltaArticulo.resources
+C:\Users\Carlos\Desktop\Facultad 2020\Programacion III - 2020\TP 2 - Articulos\TP2_CarlosTrejo\TP2_CarlosTrejo\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Carlos\Desktop\Facultad 2020\Programacion III - 2020\TP 2 - Articulos\TP2_CarlosTrejo\TP2_CarlosTrejo\obj\Debug\TP2_CarlosTrejo.frmAltaArticulo2.resources
